@@ -1,4 +1,13 @@
 def caesar_cipher(text, shift_count, direction)
+
+	# Check for valid shift count and direction inputs
+	unless (direction == "right" || direction == "left")
+		return "Incorrect direction, please try again."
+	end
+	unless (shift_count > -1)
+		return "Invalid shift count, please try again."
+	end
+
 	alphabet = ("a".."z").to_a.join("")
 	text = text.split("")
 
@@ -40,10 +49,6 @@ input = gets.chomp
 puts "Which direction would you like to shift? Enter left or right."
 shift_direction = gets.chomp
 shift_direction.downcase!
-unless (shift_direction == "left" || shift_direction == "right")
-	puts "Incorrect direction, please try again."
-	exit
-end
 puts "How many times would you like to shift?"
 shift_value = gets.chomp.to_i
 
